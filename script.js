@@ -18,12 +18,19 @@ function generateFreshBoard() {
     newSquare.style.height = squareSize + "px";
     newSquare.style.backgroundColor = "blue";
 
-    newSquare.addEventListener("mouseover", function addOpacity() {
-      newSquare.style.opacity = 0.8;
+    newSquare.addEventListener("mouseover", function () {
+      newSquare.style.backgroundColor = getRandomColor();
     });
 
     container.appendChild(newSquare);
   }
+}
+
+function getRandomColor() {
+  const r = Math.floor(Math.random() * 256); // 0-255
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 function changeSquaresAndResetBoard() {
